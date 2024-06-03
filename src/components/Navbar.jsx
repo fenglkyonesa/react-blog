@@ -43,7 +43,7 @@ function Navbar() {
                             className={"md:block hidden w-56 h-12 pl-12 font-bold rounded-full border-2 border-grey bg-grey "}
                             placeholder={"搜索"}
                         />
-                        <CiSearch size={24} className={"absolute light-1 pointer-events-none"}></CiSearch>
+                        <CiSearch size={24} className={"absolute hidden md:block light-1 pointer-events-none"}></CiSearch>
                     </div>
                 </Link>
                 <div className={"flex flex-wrap items-center justify-center  gap-2"}>
