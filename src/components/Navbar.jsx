@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useState} from 'react'
 import logo from '../imgs/logo.png'
 import {Link, Outlet} from "react-router-dom";
 import {CiSearch} from "react-icons/ci";
@@ -6,30 +6,30 @@ import UserAuthForm from "./UserAuthFormModel.jsx";
 
 function Navbar() {
     const [inputVisible, setInputVisible] = useState(false);
-    const inputRef = useRef(null);
-
-    const hideInput = () => {
-        setInputVisible(false);
-    };
-
-    // 监听点击事件
-    useEffect(() => {
-        const handleClick = (event) => {
-            if (inputRef.current && !inputRef.current.contains(event.target)) {
-                hideInput();
-            }
-        };
-
-        // 如果输入框可见，则添加点击监听事件
-        if (inputVisible) {
-            document.addEventListener('click', handleClick, true);
-        }
-
-        return () => {
-            // 清理函数，组件卸载时移除监听事件
-            document.removeEventListener('click', handleClick, true);
-        };
-    }, [inputVisible]);
+    // const inputRef = useRef(null);
+    //
+    // const hideInput = () => {
+    //     setInputVisible(false);
+    // };
+    //
+    // // 监听点击事件
+    // useEffect(() => {
+    //     const handleClick = (event) => {
+    //         if (inputRef.current && !inputRef.current.contains(event.target)) {
+    //             hideInput();
+    //         }
+    //     };
+    //
+    //     // 如果输入框可见，则添加点击监听事件
+    //     if (inputVisible) {
+    //         document.addEventListener('click', handleClick, true);
+    //     }
+    //
+    //     return () => {
+    //         // 清理函数，组件卸载时移除监听事件
+    //         document.removeEventListener('click', handleClick, true);
+    //     };
+    // }, [inputVisible]);
     return (
         <>
             <nav
@@ -56,10 +56,11 @@ function Navbar() {
 
             </nav>
             {inputVisible && (
-                <div ref={inputRef} className={"relative w-[90%] h-16  m-auto"}>
+                <div  className={"relative w-[90%] h-16  m-auto"}>
                     <input
                         className={"flex md:hidden w-full mt-6 p-4 pl-6  rounded-full border-2 border-grey  "}
                         placeholder={"搜索"}
+                        onBlur={() => setInputVisible(!inputVisible)}
                     />
                     <CiSearch size={30}
                               className={"absolute right-[15px] top-[50%] -translate-y-[50%] font-bold cursor-pointer md:hidden"}></CiSearch>

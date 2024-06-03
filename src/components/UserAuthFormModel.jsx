@@ -22,18 +22,17 @@ function UserAuthFormModel() {
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
             <Modal
-                key={"modal"}
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
-                className={" overflow-x-hidden"}
+                className={" overflow-hidden"}
                 motionProps={{
                     variants: {
                             enter: {
                                 y: 0,
                                 opacity: 1,
                                 transition: {
-                                    duration: 0.2,
+                                    duration: 0.3,
                                     ease: "easeOut",
                                 },
                             },
