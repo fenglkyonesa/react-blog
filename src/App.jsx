@@ -1,6 +1,6 @@
-import Navbar from "./components/navbar";
 import { Route, Routes} from "react-router-dom";
 import UserAuthForm from "./components/UserAuthFormModel.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
     return (
