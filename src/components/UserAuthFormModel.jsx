@@ -22,6 +22,7 @@ function UserAuthFormModel() {
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
             <Modal
+                key={"modal"}
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
