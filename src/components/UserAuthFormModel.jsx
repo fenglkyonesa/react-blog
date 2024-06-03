@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
     Modal,
     ModalContent,
@@ -23,31 +23,10 @@ function UserAuthFormModel() {
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
             <Modal
-                key={"modal"}
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
                 className={"overflow-hidden"}
-                motionProps={{
-                    variants: {
-                        enter: {
-                            y: 0,
-                            opacity: 1,
-                            transition: {
-                                duration: 0.3,
-                                ease: "easeOut",
-                            },
-                        },
-                        exit: {
-                            y: -20,
-                            opacity: 0,
-                            transition: {
-                                duration: 0.2,
-                                ease: "easeIn",
-                            },
-                        },
-                    }
-                }}
             >
                 <ModalContent className={"flex items-center justify-center "}>
                     {(onClose) => (
@@ -63,6 +42,7 @@ function UserAuthFormModel() {
                                     }
                                     label="Email"
                                     variant={"bordered"}
+                                    placeholder="Enter your email"
                                     className={"w-80 h-16 "}
                                 />
                                 <Input
@@ -79,7 +59,7 @@ function UserAuthFormModel() {
                                     }
                                     type={isVisible ? "text" : "password"}
                                     className={"w-80 h-16 "}
-
+                                    placeholder="Enter your password"
                                 />
                                 <div className="flex py-2 px-1 justify-end">
                                     <Link color="primary" href="#" size="sm">
@@ -100,6 +80,7 @@ function UserAuthFormModel() {
 
         </>
     );
+
 }
 
 export default UserAuthFormModel;
