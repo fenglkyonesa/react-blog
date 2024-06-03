@@ -18,16 +18,12 @@ function UserAuthFormModel() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [isVisible, setIsVisible] = useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useLayoutEffect(() => {
-        setIsModalOpen(true);
-    }, []); // 空数组[]意味着仅在组件挂载时执行一次
     return (
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
-
-            {isModalOpen && (<Modal
+            <Modal
+                key={"modal"}
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
@@ -35,22 +31,16 @@ function UserAuthFormModel() {
                 motionProps={{
                     variants: {
                         enter: {
-                            y: 0,
+                            scale: 1,
+                            rotate: 0,
                             opacity: 1,
-                            transition: {
-                                duration: 0.3,
-                                ease: "easeOut",
-                            },
                         },
                         exit: {
-                            y: 0,
-                            opacity: 0,
-                            transition: {
-                                duration: 0.2,
-                                ease: "easeIn",
-                            },
+                            scale: 0.9,
+                            rotate: 3,
+                            opacity: 0.5,
                         },
-                    }
+                    },
                 }}
             >
                 <ModalContent className={"flex items-center justify-center "}>
@@ -100,7 +90,7 @@ function UserAuthFormModel() {
                         </>
                     )}
                 </ModalContent>
-            </Modal>)}
+            </Modal>
 
         </>
     );
