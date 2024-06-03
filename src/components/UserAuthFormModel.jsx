@@ -13,6 +13,7 @@ import {
 import {MdOutlineEmail} from "react-icons/md";
 import {EyeSlashFilledIcon} from "../common/EyeSlashFilledIcon.jsx";
 import {EyeFilledIcon} from "../common/EyeFilledIcon.jsx";
+import { TRANSITION_EASINGS } from "@nextui-org/framer-transitions";
 
 function UserAuthFormModel() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -30,18 +31,28 @@ function UserAuthFormModel() {
                 className={"overflow-hidden"}
                 motionProps={{
                     variants: {
-                        enter: {
-                            scale: 1,
-                            rotate: 0,
-                            opacity: 1,
-                        },
-                        exit: {
-                            scale: 0.9,
-                            rotate: 3,
-                            opacity: 0.5,
-                        },
-                    },
-                }}
+                            enter: {
+                                scale: 1,
+                                y: 0,
+                                opacity: 1,
+                                transition: {
+                                    y: {
+                                        type: "spring",
+                                        bounce: 0,
+                                        duration: 0.6,
+                                    },
+                                },
+                            },
+                            exit: {
+                                scale: 1.1, // NextUI default 1.03
+                                y: 0,
+                                opacity: 0,
+                                transition: {
+                                    duration: 0.3,
+                                    ease: TRANSITION_EASINGS.ease,
+                                },
+                            },
+                        }}}
             >
                 <ModalContent className={"flex items-center justify-center "}>
                     {(onClose) => (
