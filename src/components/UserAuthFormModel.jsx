@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Modal,
     ModalContent,
@@ -16,8 +16,9 @@ import {EyeFilledIcon} from "../common/EyeFilledIcon.jsx";
 
 function UserAuthFormModel() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    // const [isVisible, setIsVisible] = useState(false);
-    // const toggleVisibility = () => setIsVisible(!isVisible);
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleVisibility = () => setIsVisible(!isVisible);
+
     return (
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
@@ -25,7 +26,27 @@ function UserAuthFormModel() {
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
-                className={" overflow-hidden"}
+                className={"overflow-hidden"}
+                motionProps={{
+                    variants: {
+                        enter: {
+                            y: 0,
+                            opacity: 1,
+                            transition: {
+                                duration: 0.3,
+                                ease: "easeOut",
+                            },
+                        },
+                        exit: {
+                            y: 0,
+                            opacity: 0,
+                            transition: {
+                                duration: 0.2,
+                                ease: "easeIn",
+                            },
+                        },
+                    }
+                }}
             >
                 <ModalContent className={"flex items-center justify-center "}>
                     {(onClose) => (
@@ -43,22 +64,22 @@ function UserAuthFormModel() {
                                     variant={"bordered"}
                                     className={"w-80 h-16 "}
                                 />
-                                {/*<Input*/}
-                                {/*    label="Password"*/}
-                                {/*    variant="bordered"*/}
-                                {/*    endContent={*/}
-                                {/*        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>*/}
-                                {/*            {isVisible ? (*/}
-                                {/*                <EyeSlashFilledIcon className="text-2xl  pointer-events-none"/>*/}
-                                {/*            ) : (*/}
-                                {/*                <EyeFilledIcon className="text-2xl  pointer-events-none"/>*/}
-                                {/*            )}*/}
-                                {/*        </button>*/}
-                                {/*    }*/}
-                                {/*    type={isVisible ? "text" : "password"}*/}
-                                {/*    className={"w-80 h-16 "}*/}
+                                <Input
+                                    label="Password"
+                                    variant="bordered"
+                                    endContent={
+                                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                                            {isVisible ? (
+                                                <EyeSlashFilledIcon className="text-2xl  pointer-events-none"/>
+                                            ) : (
+                                                <EyeFilledIcon className="text-2xl  pointer-events-none"/>
+                                            )}
+                                        </button>
+                                    }
+                                    type={isVisible ? "text" : "password"}
+                                    className={"w-80 h-16 "}
 
-                                {/*/>*/}
+                                />
                                 <div className="flex py-2 px-1 justify-end">
                                     <Link color="primary" href="#" size="sm">
                                         忘记密码?
