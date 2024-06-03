@@ -18,11 +18,16 @@ function UserAuthFormModel() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [isVisible, setIsVisible] = useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    useEffect(() => {
+        setIsModalOpen(true);
+    }, []); // 空数组[]意味着仅在组件挂载时执行一次
     return (
         <>
             <Button onPress={onOpen} className={"bg-black text-white w-16 md:w-24  h-10 rounded-full"}>登录</Button>
-            <Modal
+
+            {isModalOpen && (<Modal
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="center"
@@ -95,7 +100,8 @@ function UserAuthFormModel() {
                         </>
                     )}
                 </ModalContent>
-            </Modal>
+            </Modal>)}
+
         </>
     );
 }
