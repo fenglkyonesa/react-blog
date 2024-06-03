@@ -33,7 +33,7 @@ function Navbar() {
     return (
         <>
             <nav
-                className='z-10 top-0 sticky flex  w-full px-7 py-5 h-20
+                className='z-10  top-0 sticky flex  w-full px-7 py-5 h-20
             items-center border-b-2 border-grey justify-between'>
                 <Link to={"/"}>
                     <div className={"flex flex-wrap items-center justify-center gap-3"}>

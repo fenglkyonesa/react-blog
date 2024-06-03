@@ -32,7 +32,7 @@ function UserAuthFormModel() {
                                 y: 0,
                                 opacity: 1,
                                 transition: {
-                                    duration: 0.3,
+                                    duration: 0.2,
                                     ease: "easeOut",
                                 },
                             },
@@ -59,7 +59,7 @@ function UserAuthFormModel() {
                                     }
                                     label="Email"
                                     variant={"bordered"}
-                                    className={"w-96 h-16 "}
+                                    className={"w-80 h-16 "}
                                 />
                                 <Input
                                     label="Password"
@@ -74,7 +74,7 @@ function UserAuthFormModel() {
                                         </button>
                                     }
                                     type={isVisible ? "text" : "password"}
-                                    className={"w-96 h-16 "}
+                                    className={"w-80 h-16 "}
 
                                 />
                                 <div className="flex py-2 px-1 justify-end">
@@ -85,7 +85,7 @@ function UserAuthFormModel() {
                             </ModalBody>
                             <ModalFooter>
 
-                                <Button className={"w-32 h-12"} onPress={onClose}>
+                                <Button className={"bg-black text-white  w-24  h-10 rounded-full"} onPress={onClose}>
                                     <span className={"font-bold "}>登录</span>
                                 </Button>
                             </ModalFooter>
