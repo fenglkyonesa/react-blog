@@ -35,6 +35,7 @@ function UserAuthFormModel() {
                             </ModalHeader>
                             <ModalBody>
                                 <Input
+                                    autoFocus
                                     endContent={
                                         <MdOutlineEmail className="text-2xl  pointer-events-none flex-shrink-0"/>
                                     }
@@ -55,6 +56,8 @@ function UserAuthFormModel() {
                                         </button>
                                     }
                                     type={isVisible ? "text" : "password"}
+                                    className={"w-96 h-16 "}
+
                                 />
                                 <div className="flex py-2 px-1 justify-end">
                                     <Link color="primary" href="#" size="sm">
