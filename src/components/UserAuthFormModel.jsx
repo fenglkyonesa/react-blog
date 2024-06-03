@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {
     Modal,
     ModalContent,
@@ -20,7 +20,7 @@ function UserAuthFormModel() {
     const toggleVisibility = () => setIsVisible(!isVisible);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setIsModalOpen(true);
     }, []); // 空数组[]意味着仅在组件挂载时执行一次
     return (
